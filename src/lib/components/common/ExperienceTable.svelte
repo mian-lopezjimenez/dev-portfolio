@@ -1,20 +1,26 @@
 <script lang="ts">
-  import { workExperiences } from "$data";
+  import type { DevExperience } from "$types/sanity";
+
+  interface Props {
+    workExperience: DevExperience[];
+  }
+
+  let { workExperience }: Props = $props();
 </script>
 
 <section class="default-margin work-experience mt-m">
   <ul class="work-experience-list">
-    {#each workExperiences as { jobTitle, company, startDate, endDate } (`${jobTitle}-${company}`)}
+    {#each workExperience as { jobTitle, company, startDate, endDate } (`${jobTitle}-${company}`)}
       <li class="work-item">
         <article>
           <h3 class="semi-bold mb-xs">{jobTitle}</h3>
           <div class="company-and-date">
             <p>{company}</p>
             <p class="dark-grey">
-              {startDate}
+              {startDate.slice(0, 7)}
 
               {#if endDate}
-                / {endDate}
+                / {endDate.slice(0, 7)}
               {:else}
                 / present
               {/if}

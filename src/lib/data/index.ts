@@ -1,5 +1,3 @@
-import type { WorkExperience } from "$lib/interfaces";
-
 const aboutMeSection = `
       <p>
         Hey, I'm Niklas, the driving force behind my freelancing agency
@@ -21,7 +19,7 @@ const aboutMeSection = `
         experience and practical know-how, let's dive in together.
       </p>`;
 
-export const workExperiences: WorkExperience[] = [
+export const workExperiences = [
   {
     jobTitle: "Software Engineer",
     company: "cleverklagen",

@@ -5,6 +5,12 @@
 
   import image from "$assets/about-me.jpeg";
 
+  interface Props {
+    workExperience: DevExperience[];
+  }
+
+  let { workExperience }: Props = $props();
+
   function onclick() {
     goto("/#contact-form");
   }
@@ -40,7 +46,7 @@
     </div>
   </div>
 
-  <ExperienceTable />
+  <ExperienceTable {workExperience} />
 </section>
 
 <style>
