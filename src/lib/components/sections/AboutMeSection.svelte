@@ -6,7 +6,7 @@
   import image from "$assets/about-me.jpeg";
 
   interface Props {
-    workExperience: DevExperience[];
+    workExperience: WorkExperience[];
   }
 
   let { workExperience }: Props = $props();

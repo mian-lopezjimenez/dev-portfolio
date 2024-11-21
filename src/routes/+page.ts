@@ -1,13 +1,15 @@
 import type { PageLoad } from "./$types";
 
 import { sanityClient } from "$utils";
-import type { DevExperience } from "$types/sanity";
 
 export const load: PageLoad = async (): Promise<{
-  workExperience: DevExperience[];
+  workExperience: WorkExperience[];
 }> => {
-  const workExperience: DevExperience[] = await sanityClient.fetch(
-    "*[_type == 'devExperience'] | order(startDate desc)"
+  const workExperience: WorkExperience[] = await sanityClient.fetch(
+    "*[_type == 'WorkExperience'] | order(startDate desc)"
+  );
+  const rawProjects: Project[] = await sanityClient.fetch(
+    "*[_type == 'project']"
   );
 
   return {

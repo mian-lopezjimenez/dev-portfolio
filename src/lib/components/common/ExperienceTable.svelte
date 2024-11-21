@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { DevExperience } from "$types/sanity";
+  import type { WorkExperience } from "$types/sanity";
 
   interface Props {
-    workExperience: DevExperience[];
+    workExperience: WorkExperience[];
   }
 
   let { workExperience }: Props = $props();
