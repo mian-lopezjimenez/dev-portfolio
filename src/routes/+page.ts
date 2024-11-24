@@ -6,6 +6,7 @@ import { processProjectEntries } from "$utils/sanity";
 export const load: PageLoad = async (): Promise<{
   workExperience: WorkExperience[];
   projects: ProcessedProject[];
+  skills: Skill[];
 }> => {
   const workExperience: WorkExperience[] = await sanityClient.fetch(
     "*[_type == 'devExperience'] | order(startDate desc)"
@@ -15,6 +16,10 @@ export const load: PageLoad = async (): Promise<{
     "*[_type == 'project']"
   );
 
+  const skills: Skill[] = await sanityClient.fetch(
+    "*[_type == 'skill'][0].skillsList"
+  );
+
   const projects: ProcessedProject[] = rawProjects.map((project) =>
     processProjectEntries(project)
   );
@@ -22,5 +27,6 @@ export const load: PageLoad = async (): Promise<{
   return {
     workExperience,
     projects,
+    skills,
   };
 };
