@@ -16,10 +16,10 @@ type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
-  company?: string;
-  slug?: string;
-  image?: {
+  name: string;
+  company: string;
+  slug: string;
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -30,12 +30,12 @@ type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  dateAccomplished?: string;
-  content?: Array<RawTextContent | RawImageContent>;
-  stack?: Array<string>;
+  dateAccomplished: string;
+  content: Array<RawTextContent | RawImageContent>;
+  stack: Array<string>;
 };
 
-interface RowTextContent {
+interface RawTextContent {
   children: Array<{
     marks?: Array<string>;
     text: string;
