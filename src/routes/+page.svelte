@@ -1,7 +1,8 @@
 <script lang="ts">
   import {
-    HeroSection,
     AboutMeSection,
+    ContactSection,
+    HeroSection,
     MyWorkSection,
     SkillsSection,
   } from "$components";
@@ -14,3 +15,4 @@
 <AboutMeSection {workExperience} />
 <MyWorkSection {projects} />
 <SkillsSection {skills} />
+<ContactSection />
